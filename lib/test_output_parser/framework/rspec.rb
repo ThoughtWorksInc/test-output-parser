@@ -1,4 +1,4 @@
-module TestCount
+module TestOutputParser
   module Framework
     class RSpec
       def self.count(test_output)

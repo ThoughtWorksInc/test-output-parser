@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'test_count/version'
+require 'test_output_parser/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "test-count"
-  spec.version       = TestCount::VERSION
+  spec.name          = "test-output-parser"
+  spec.version       = TestOutputParser::VERSION
   spec.authors       = ["Akshay Karle"]
   spec.email         = ["akshay.a.karle@gmail.com"]
   spec.summary       = %q{TODO: Write a short summary. Required.}
