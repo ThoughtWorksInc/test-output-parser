@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe TestOutputParser do
+  it 'should do nothing when there is no spec summary in the output' do
+    TestOutputParser.count("123 foo  bar examples").should == {}
+  end
+
   it 'should count the number of specs ran for one example' do
     TestOutputParser.count("1 example, 0 failures").should == {:total => 1, :failed => 0, :pending => 0}
   end
