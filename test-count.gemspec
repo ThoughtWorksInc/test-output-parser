@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'test/count/version'
+require 'test-count/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "test-count"
-  spec.version       = Test::Count::VERSION
+  spec.version       = TestCount::VERSION
   spec.authors       = ["Akshay Karle"]
   spec.email         = ["akshay.a.karle@gmail.com"]
   spec.summary       = %q{TODO: Write a short summary. Required.}
@@ -20,4 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"
+
+  spec.add_development_dependency "rspec"
 end
