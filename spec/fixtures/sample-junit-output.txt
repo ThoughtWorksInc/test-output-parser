@@ -1,0 +1,146 @@
+$ git fetch --prune --all
+Fetching origin
+Command git fetch --prune --all exited successfully with status 0.
+
+$ git reset --hard FETCH_HEAD
+HEAD is now at 2a6804f Create README.md
+Command git reset --hard FETCH_HEAD exited successfully with status 0.
+
+$ git clean -fdx
+Removing target/
+Command git clean -fdx exited successfully with status 0.
+
+$ git checkout master
+Already on 'master'
+Command git checkout master exited successfully with status 0.
+
+$ git reset --hard 2a6804f850c9dcb5cc56143342eec8396410537e
+HEAD is now at 2a6804f Create README.md
+Command git reset --hard 2a6804f850c9dcb5cc56143342eec8396410537e exited successfully with status 0.
+
+$ git submodule update --init
+Command git submodule update --init exited successfully with status 0.
+
+$ git remote set-url --push origin 'git@github.com:akshaykarle/dropwizard-snapci-sample'
+Command git remote set-url --push origin 'git@github.com:akshaykarle/dropwizard-snapci-sample' exited successfully with status 0.
+
+$ export SNAP_CI=true
+$ export CI=true
+$ export LANG=en_US.UTF-8
+$ export LC_ALL=en_US.UTF-8
+$ export SNAP_PIPELINE_COUNTER=5
+$ export SNAP_STAGE_NAME=Test
+$ export SNAP_BRANCH=master
+$ export SNAP_COMMIT=2a6804f850c9dcb5cc56143342eec8396410537e
+$ export SNAP_COMMIT_SHORT=2a6804f
+
+$ mvn package
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building microblog 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ microblog ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ microblog ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 13 source files to /var/go/repo/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ microblog ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/go/repo/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ microblog ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /var/go/repo/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ microblog ---
+[INFO] Surefire report directory: /var/go/repo/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.snapci.microblog.core.ErrorResponseTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 sec
+Running com.snapci.microblog.resources.UserResourceTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.271 sec
+Running com.snapci.microblog.resources.MicroBlogResourceTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec
+
+Results :
+
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ microblog ---
+[INFO] Building jar: /var/go/repo/target/microblog-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:2.1:shade (default) @ microblog ---
+[INFO] Including com.yammer.dropwizard:dropwizard-core:jar:0.6.2 in the shaded jar.
+[INFO] Including com.sun.jersey:jersey-core:jar:1.17.1 in the shaded jar.
+[INFO] Including com.sun.jersey:jersey-server:jar:1.17.1 in the shaded jar.
+[INFO] Including asm:asm:jar:3.1 in the shaded jar.
+[INFO] Including com.sun.jersey:jersey-servlet:jar:1.17.1 in the shaded jar.
+[INFO] Including com.yammer.metrics:metrics-core:jar:2.2.0 in the shaded jar.
+[INFO] Including com.yammer.metrics:metrics-servlet:jar:2.2.0 in the shaded jar.
+[INFO] Including com.yammer.metrics:metrics-jetty:jar:2.2.0 in the shaded jar.
+[INFO] Including com.yammer.metrics:metrics-logback:jar:2.2.0 in the shaded jar.
+[INFO] Including com.yammer.metrics:metrics-jersey:jar:2.2.0 in the shaded jar.
+[INFO] Including com.yammer.metrics:metrics-annotation:jar:2.2.0 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.core:jackson-databind:jar:2.1.4 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.core:jackson-annotations:jar:2.1.4 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.core:jackson-core:jar:2.1.4 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar:2.1.4 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.1.4 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.1.4 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.datatype:jackson-datatype-guava:jar:2.1.2 in the shaded jar.
+[INFO] Including net.sourceforge.argparse4j:argparse4j:jar:0.4.0 in the shaded jar.
+[INFO] Including org.slf4j:slf4j-api:jar:1.7.4 in the shaded jar.
+[INFO] Including org.slf4j:jul-to-slf4j:jar:1.7.4 in the shaded jar.
+[INFO] Including ch.qos.logback:logback-core:jar:1.0.10 in the shaded jar.
+[INFO] Including ch.qos.logback:logback-classic:jar:1.0.10 in the shaded jar.
+[INFO] Including org.slf4j:log4j-over-slf4j:jar:1.7.4 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-server:jar:8.1.10.v20130312 in the shaded jar.
+[INFO] Including org.eclipse.jetty.orbit:javax.servlet:jar:3.0.0.v201112011016 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-continuation:jar:8.1.10.v20130312 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-servlet:jar:8.1.10.v20130312 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-security:jar:8.1.10.v20130312 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-http:jar:8.1.10.v20130312 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-io:jar:8.1.10.v20130312 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-util:jar:8.1.10.v20130312 in the shaded jar.
+[INFO] Including com.google.guava:guava:jar:14.0.1 in the shaded jar.
+[INFO] Including com.google.code.findbugs:jsr305:jar:2.0.1 in the shaded jar.
+[INFO] Including org.hibernate:hibernate-validator:jar:4.3.1.Final in the shaded jar.
+[INFO] Including javax.validation:validation-api:jar:1.0.0.GA in the shaded jar.
+[INFO] Including org.jboss.logging:jboss-logging:jar:3.1.0.CR2 in the shaded jar.
+[INFO] Including joda-time:joda-time:jar:2.2 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.datatype:jackson-datatype-joda:jar:2.1.2 in the shaded jar.
+[INFO] Including com.yammer.dropwizard:dropwizard-jdbi:jar:0.6.2 in the shaded jar.
+[INFO] Including com.yammer.dropwizard:dropwizard-db:jar:0.6.2 in the shaded jar.
+[INFO] Including org.apache.tomcat:tomcat-dbcp:jar:7.0.37 in the shaded jar.
+[INFO] Including org.jdbi:jdbi:jar:2.41 in the shaded jar.
+[INFO] Including com.yammer.metrics:metrics-jdbi:jar:2.2.0 in the shaded jar.
+[INFO] Including com.yammer.dropwizard:dropwizard-migrations:jar:0.6.2 in the shaded jar.
+[INFO] Including org.liquibase:liquibase-core:jar:2.0.5 in the shaded jar.
+[INFO] Including com.mattbertolini:liquibase-slf4j:jar:1.0.0 in the shaded jar.
+[INFO] Including postgresql:postgresql:jar:9.1-901.jdbc4 in the shaded jar.
+[INFO] Including mysql:mysql-connector-java:jar:5.1.26 in the shaded jar.
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing /var/go/repo/target/microblog-0.0.1-SNAPSHOT.jar with /var/go/repo/target/microblog-0.0.1-SNAPSHOT-shaded.jar
+[INFO] Dependency-reduced POM written at: /var/go/repo/dependency-reduced-pom.xml
+[INFO] Dependency-reduced POM written at: /var/go/repo/dependency-reduced-pom.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 6.524s
+[INFO] Finished at: Mon Dec 23 13:23:54 UTC 2013
+[INFO] Final Memory: 50M/233M
+[INFO] ------------------------------------------------------------------------
+Command mvn package exited successfully with status 0. Took 8.13 seconds.
+Saving console log for later
+Saving artifact in target

@@ -1,0 +1,12 @@
+Finished in 1.68 seconds
+25 examples, 0 failures
+
+Finished in 15.74 seconds
+7 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/integration/gnocci_spec.rb:52 # Gnocci should switch to repo directory
+/opt/local/ruby/2.0.0-p247/bin/ruby -S rspec spec/integration/artifact_s3_spec.rb spec/integration/console_log_artifact_s3_spec.rb spec/integration/gnocci_spec.rb --format documentation failed
+Command "bundle exec rake spec" failed with status 1.
+Failed
