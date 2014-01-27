@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = TestOutputParser::VERSION
   spec.authors       = ["Akshay Karle"]
   spec.email         = ["akshay.a.karle@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{A gem to get the summary of test outputs for further processing}
+  spec.description   = ""
   spec.homepage      = ""
   spec.license       = "MIT"
 
