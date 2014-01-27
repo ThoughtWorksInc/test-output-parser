@@ -1,5 +1,5 @@
 require 'test_count/version'
-require 'test_count/framework/framework'
+require 'test_count/framework'
 
 module TestCount
   def self.count(test_output)
