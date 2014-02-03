@@ -1,31 +1,17 @@
 require 'spec_helper'
 
 describe TestOutputParser do
-  it 'should do nothing when there is no spec summary in the output' do
-    TestOutputParser.count("123 foo  bar examples").should == {}
+  it 'should give the summary of specs for rspec' do
+    TestOutputParser.count(File.read("spec/fixtures/sample-failed-rspec-output.txt"), :rspec).should == {:total => 1460, :failed => 1, :pending => 3}
   end
 
-  it 'should count the number of specs ran for one example' do
-    TestOutputParser.count("1 example, 0 failures").should == {:total => 1, :failed => 0, :pending => 0}
+  it 'should give the summary of specs for test unit' do
+    TestOutputParser.count(File.read("spec/fixtures/sample-failed-test-unit-output.txt"), :test_unit).should == {:total => 1, :assertions => 1, :failed => 1, :errors => 0, :skipped => 0}
   end
 
-  it 'should count the number of specs ran for one rspec run' do
-    TestOutputParser.count("25 examples, 0 failures").should == {:total => 25, :failed => 0, :pending => 0}
-  end
-
-  it 'should count the number of specs ran for multiple rspec runs' do
-    TestOutputParser.count("25 examples, 1 failure\n\n\n5 examples, 3 failures").should == {:total => 30, :failed => 4, :pending => 0}
-  end
-
-  it 'should ignore lines not related to rspec test summary' do
-    TestOutputParser.count(File.read("spec/fixtures/sample-rspec-output.txt")).should == {:total => 67, :failed => 0, :pending => 0}
-  end
-
-  it 'should count failures correctly' do
-    TestOutputParser.count(File.read("spec/fixtures/sample-failed-rspec-output.txt")).should == {:total => 1460, :failed => 1, :pending => 3}
-  end
-
-  it 'should count the number of pending specs' do
-    TestOutputParser.count(File.read("spec/fixtures/sample-failed-rspec-output.txt")).should == {:total => 1460, :failed => 1, :pending => 3}
+  it 'should raise an error when a valid framework is not specified' do
+    lambda do
+      TestOutputParser.count("foo", :bar)
+    end.should raise_error(ArgumentError)
   end
 end

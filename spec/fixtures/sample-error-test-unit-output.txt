@@ -1,0 +1,7 @@
+# Running tests:
+
+.
+
+Finished tests in 0.003116s, 320.9217 tests/s, 320.9217 assertions/s.
+
+1 tests, 1 assertions, 0 failures, 1 errors, 0 skips
