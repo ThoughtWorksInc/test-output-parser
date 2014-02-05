@@ -1,0 +1,79 @@
+$ gradle test
+The ConfigurationContainer.add() method has been deprecated and is scheduled to be removed in Gradle 2.0. Please use the create() method instead.
+The TaskContainer.add() method has been deprecated and is scheduled to be removed in Gradle 2.0. Please use the create() method instead.
+:compileJava
+:processResources
+:classes
+:compileTestJavaNote: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:processTestResources UP-TO-DATE
+:testClasses
+:test
+Running test: test shouldPassNotFoundMessageWhenIDIsInvalid(com.thoughtworks.twu.controller.BookViewControllerTest)
+Running test: test shouldPassBookToBookViewPageWhenIDIsValid(com.thoughtworks.twu.controller.BookViewControllerTest)
+Running test: test shouldVerifyThatBookServiceReturnsBook(com.thoughtworks.twu.controller.BookViewControllerTest)
+Running test: test shouldVerifyThatBookServiceUpdatesCount(com.thoughtworks.twu.controller.BookViewControllerTest)
+Running test: test shouldPassNotFoundMessageWhenIDIsEmpty(com.thoughtworks.twu.controller.BookViewControllerTest)
+Running test: test shouldHaveEmptyNotificationWhenUserViewsBookForFirstTime(com.thoughtworks.twu.controller.BookViewControllerTest)
+Running test: test shouldPassANotificationToTheViewThatBookWasRecommended(com.thoughtworks.twu.controller.BookViewControllerTest)
+Running test: test shouldRetrieveResultFromBookSearch(com.thoughtworks.twu.controller.SearchControllerTest)
+Running test: test shouldNotRetrieveResultFromBookSearchWhenTitleIsEmpty(com.thoughtworks.twu.controller.SearchControllerTest)
+Running test: test shouldSendErrorMessageWhenNoBooksWhereFound(com.thoughtworks.twu.controller.SearchControllerTest)
+Running test: test shouldReturnSearchTypeToTheView(com.thoughtworks.twu.controller.SearchControllerTest)
+Running test: test shouldRenderSearchPage(com.thoughtworks.twu.controller.SearchControllerTest)
+Running test: test shouldAddListOfWantToReadBooksToModelForTheLoggedInUser(com.thoughtworks.twu.controller.BookshelfControllerTest)
+Running test: test shouldSendBookNotFoundMessageIfNoBooksInWantToReadList(com.thoughtworks.twu.controller.BookshelfControllerTest)
+Running test: test shouldNotAddBookToDBIfItIsInSystem(com.thoughtworks.twu.controller.AddBookControllerTest)
+Running test: test shouldRedirectToViewBook(com.thoughtworks.twu.controller.AddBookControllerTest)
+Running test: test shouldAddBookToDBIfNotInSystem(com.thoughtworks.twu.controller.AddBookControllerTest)
+
+com.thoughtworks.twu.controller.AddBookControllerTest > shouldAddBookToDBIfNotInSystem FAILED
+    java.lang.AssertionError at AddBookControllerTest.java:28
+Running test: test shouldRedirectToCreateUserPageIfUserIsUnRegistered(com.thoughtworks.twu.controller.LoginControllerTest)
+Running test: test shouldSaveUnregisteredUser(com.thoughtworks.twu.controller.LoginControllerTest)
+Running test: test shouldRedirectToWelcomePageIfUserIsRegistered(com.thoughtworks.twu.controller.LoginControllerTest)
+Running test: test shouldStayOnSamePageIfUsernameIsBlank(com.thoughtworks.twu.controller.LoginControllerTest)
+Running test: test shouldRedirectToRightBookWithCorrectNotificationWhenBookIsPutInList(com.thoughtworks.twu.controller.WantToReadBookControllerTest)
+Running test: test shouldRedirectToRightBookWithCorrectNotificationWhenBookIsNotPutInList(com.thoughtworks.twu.controller.WantToReadBookControllerTest)
+Running test: test shouldReturnValidResponseWhenBookAlreadySaved(com.thoughtworks.twu.controller.WantToReadBookControllerTest)
+Running test: test shouldNotAddBookToWantTOReadListWhenTheBookIsAlreadyAdded(com.thoughtworks.twu.controller.WantToReadBookControllerTest)
+Running test: test shouldSuccessfullyAddBookToWantToReadList(com.thoughtworks.twu.controller.WantToReadBookControllerTest)
+Running test: test shouldReturnValidResponseWhenBookNotAlreadySaved(com.thoughtworks.twu.controller.WantToReadBookControllerTest)
+Running test: test shouldNotAssignDefaultImageWhenBookImageIsAvailable(com.thoughtworks.twu.domain.BookTest)
+Running test: test shouldAssignDefaultDescriptionWhenBookHasNoDescription(com.thoughtworks.twu.domain.BookTest)
+Running test: test shouldUnderstandBook(com.thoughtworks.twu.domain.BookTest)
+Running test: test shouldAssignDefaultImageWhenBookHasNoImage(com.thoughtworks.twu.domain.BookTest)
+Running test: test shouldNotAssignDefaultDescriptionWhenBookDescriptionIsAvailable(com.thoughtworks.twu.domain.BookTest)
+Running test: test shouldFindBooksByTitle(com.thoughtworks.twu.service.SearchServiceTest)
+Running test: test shouldAddBookToWantToReadList(com.thoughtworks.twu.service.UserServiceTest)
+Running test: test shouldCheckExistingUser(com.thoughtworks.twu.service.UserServiceTest)
+Running test: test shouldGetUserByName(com.thoughtworks.twu.service.UserServiceTest)
+Running test: test shouldCreateUser(com.thoughtworks.twu.service.UserServiceTest)
+Running test: test shouldReturnFalseWhenBookIsNotMarkedAsWantToReadInDB(com.thoughtworks.twu.service.UserServiceTest)
+Running test: test shouldReturnTrueWhenBookIsMarkedAsWantToReadInDB(com.thoughtworks.twu.service.UserServiceTest)
+Running test: test shouldReturnAListOfWantToReadBooks(com.thoughtworks.twu.service.UserServiceTest)
+Running test: test shouldGetBookInfoFromDB(com.thoughtworks.twu.service.BookServiceTest)
+Running test: test shouldInsertBookToDB(com.thoughtworks.twu.service.BookServiceTest)
+Running test: test shouldReturnTrueIfBookExistedInDB(com.thoughtworks.twu.service.BookServiceTest)
+Running test: test shouldReturnFalseIfBookIsNotExistedInDB(com.thoughtworks.twu.service.BookServiceTest)
+Running test: test shouldGetBookById(com.thoughtworks.twu.service.BookServiceTest)
+Running test: test shouldUpdateRecommendCountByOne(com.thoughtworks.twu.service.BookServiceTest)
+Running test: test shouldReturnBookWithIDWhenTheBookIsInDB(com.thoughtworks.twu.service.BookServiceTest)
+
+47 tests completed, 1 failed
+:test FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':test'.
+> There were failing tests. See the report at: file:///var/go/repo/build/reports/tests/index.html
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 10.732 secs
+Command gradle test failed with status 1. Took 10.99 seconds.
