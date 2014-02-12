@@ -1,7 +1,20 @@
+$ bundle exec rake test
+/opt/local/ruby/1.9.3-p484/bin/ruby -I"lib:test" -I"/opt/local/ruby/1.9.3-p484/lib/ruby/1.9.1" "/opt/local/ruby/1.9.3-p484/lib/ruby/1.9.1/rake/rake_test_loader.rb" "test/foo_test.rb" 
+Run options: 
+
 # Running tests:
 
-.
+.FF
 
-Finished tests in 0.003116s, 320.9217 tests/s, 320.9217 assertions/s.
+Finished tests in 0.000557s, 1793.7831 tests/s, 1793.7831 assertions/s.
 
-1 tests, 1 assertions, 1 failures, 0 errors, 0 skips
+  1) Failure:
+test_passes(FooTest) [/var/go/repo/test/foo_test.rb:5]:
+Failed assertion, no message given.
+
+  2) Failure:
+test_passes(FooTest) [/var/go/repo/test/foo_test.rb:10]:
+Failed assertion, no message given.
+
+3 tests, 3 assertions, 2 failures, 0 errors, 0 skips
+rake aborted!
