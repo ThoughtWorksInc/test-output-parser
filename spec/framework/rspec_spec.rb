@@ -21,11 +21,20 @@ describe TestOutputParser::Framework::RSpec do
     TestOutputParser::Framework::RSpec.count(File.read("spec/fixtures/sample-rspec-output.txt")).should == {:total => 67, :failed => 0, :pending => 0}
   end
 
-  it 'should count failures correctly' do
-    TestOutputParser::Framework::RSpec.count(File.read("spec/fixtures/sample-failed-rspec-output.txt")).should == {:total => 16, :failed => 1, :pending => 0}
-  end
-
   it 'should count the number of pending specs' do
     TestOutputParser::Framework::RSpec.count("16 examples, 0 failures, 1 pending").should == {:total => 16, :failed => 0, :pending => 1}
+  end
+
+  it 'should count the name of the specs that failed' do
+    TestOutputParser::Framework::RSpec.count(File.read("spec/fixtures/sample-failed-rspec-output.txt")).should ==
+        {:total => 16, :failed => 1, :pending => 0,
+         :failures =>   "  1) PostsController GET index assigns all posts as @posts\n" \
+                        "     Failure/Error: assert false\n" \
+                        "     MiniTest::Assertion:\n" \
+                        "       Failed assertion, no message given.\n" \
+                        "     # (eval):2:in `assert'\n" \
+                        "     # ./spec/controllers/posts_controller_spec.rb:39:in `block (3 levels) in <top (required)>'"
+
+        }
   end
 end
