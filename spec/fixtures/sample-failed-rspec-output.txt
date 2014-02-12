@@ -1,2 +1,19 @@
-Finished in 4 minutes 43.2 seconds
-1460 examples, 1 failure, 3 pending
+$ bundle exec rake spec:controllers
+/opt/local/ruby/1.9.3-p484/bin/ruby -S rspec ./spec/controllers/posts_controller_spec.rb
+.......F........
+
+Failures:
+
+  1) PostsController GET index assigns all posts as @posts
+     Failure/Error: assert false
+     MiniTest::Assertion:
+       Failed assertion, no message given.
+     # (eval):2:in `assert'
+     # ./spec/controllers/posts_controller_spec.rb:39:in `block (3 levels) in <top (required)>'
+
+Finished in 0.13092 seconds
+16 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/controllers/posts_controller_spec.rb:38 # PostsController GET index assigns all posts as @posts

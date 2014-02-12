@@ -22,10 +22,10 @@ describe TestOutputParser::Framework::RSpec do
   end
 
   it 'should count failures correctly' do
-    TestOutputParser::Framework::RSpec.count(File.read("spec/fixtures/sample-failed-rspec-output.txt")).should == {:total => 1460, :failed => 1, :pending => 3}
+    TestOutputParser::Framework::RSpec.count(File.read("spec/fixtures/sample-failed-rspec-output.txt")).should == {:total => 16, :failed => 1, :pending => 0}
   end
 
   it 'should count the number of pending specs' do
-    TestOutputParser::Framework::RSpec.count(File.read("spec/fixtures/sample-failed-rspec-output.txt")).should == {:total => 1460, :failed => 1, :pending => 3}
+    TestOutputParser::Framework::RSpec.count("16 examples, 0 failures, 1 pending").should == {:total => 16, :failed => 0, :pending => 1}
   end
 end
