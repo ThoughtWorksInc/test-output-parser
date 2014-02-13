@@ -8,7 +8,7 @@ module TestOutputParser
           summary[:pending] += arr[3].to_i
         end
         failures = test_output.scan(/Failures:\n+(.*)Finished in/m)
-        summary[:failures] = failures.flatten.first.chomp("\n\n") unless failures.empty?
+        summary[:failures] = failures.flatten.first.strip unless failures.empty?
 
         summary
       end

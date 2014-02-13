@@ -11,7 +11,7 @@ module TestOutputParser
         end
 
         failures = test_output.scan(/(^\s+\d\)\sFailure:\n+.*)+\d+\stests/m)
-        summary[:failures] = failures.flatten.first.chomp("\n\n") unless failures.empty?
+        summary[:failures] = failures.flatten.first.strip unless failures.empty?
         summary
       end
     end

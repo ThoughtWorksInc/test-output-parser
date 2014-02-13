@@ -7,7 +7,7 @@ describe TestOutputParser do
         :total=>16,
         :failed=>1,
         :pending=>0,
-        :failures=>"  1) PostsController GET index assigns all posts as @posts\n"\
+        :failures=>"1) PostsController GET index assigns all posts as @posts\n"\
         "     Failure/Error: assert false\n"\
         "     MiniTest::Assertion:\n"\
         "       Failed assertion, no message given.\n"\
@@ -23,7 +23,7 @@ describe TestOutputParser do
         :failed=>2,
         :errors=>0,
         :pending=>0,
-        :failures=>"\n  1) Failure:\ntest_passes(FooTest) [/var/go/repo/test/foo_test.rb:5]:\n"\
+        :failures=>"1) Failure:\ntest_passes(FooTest) [/var/go/repo/test/foo_test.rb:5]:\n"\
         "Failed assertion, no message given.\n\n"\
         "  2) Failure:\ntest_passes(FooTest) [/var/go/repo/test/foo_test.rb:10]:\nFailed assertion, no message given."
       }
@@ -46,7 +46,7 @@ describe TestOutputParser do
         :total=>19,
         :failed=>3,
         :pending=>0,
-        :failures=>"\n  1) Failure:\n"\
+        :failures=>"1) Failure:\n"\
         "test_passes(FooTest) [/var/go/repo/test/foo_test.rb:5]:\n"\
         "Failed assertion, no message given.\n\n"\
         "  2) Failure:\ntest_passes(FooTest) [/var/go/repo/test/foo_test.rb:10]:\n"\

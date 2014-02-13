@@ -28,7 +28,7 @@ describe TestOutputParser::Framework::RSpec do
   it 'should count the name of the specs that failed' do
     TestOutputParser::Framework::RSpec.count(File.read("spec/fixtures/sample-failed-rspec-output.txt")).should ==
         {:total => 16, :failed => 1, :pending => 0,
-         :failures =>   "  1) PostsController GET index assigns all posts as @posts\n" \
+         :failures =>   "1) PostsController GET index assigns all posts as @posts\n" \
                         "     Failure/Error: assert false\n" \
                         "     MiniTest::Assertion:\n" \
                         "       Failed assertion, no message given.\n" \

@@ -38,7 +38,7 @@ describe TestOutputParser::Framework::TestUnit do
         :failed => 2,
         :errors => 0,
         :pending => 0,
-        :failures => "\n  1) Failure:\n" \
+        :failures => "1) Failure:\n" \
           "test_passes(FooTest) [/var/go/repo/test/foo_test.rb:5]:\n" \
           "Failed assertion, no message given.\n"\
                      "\n  2) Failure:\n"\
