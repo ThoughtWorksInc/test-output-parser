@@ -28,4 +28,27 @@ describe TestOutputParser::Framework::JUnit do
   it 'should ignore lines not related to JUnit test summary' do
     TestOutputParser::Framework::JUnit.count(File.read("spec/fixtures/sample-junit-output.txt")).should == {:total => 13, :failed => 0, :errors => 0, :pending => 0}
   end
+
+  it 'should include the failures in the test summary for JUnit output' do
+    TestOutputParser::Framework::JUnit.count(File.read("spec/fixtures/sample-failed-junit-output.txt")).should ==
+      {
+        :total => 13,
+        :failed => 2,
+        :errors=>0,
+        :pending=>0,
+          :failures => "Failed tests:   testFromExceptionWithUniqueConstraintViolation(com.snapci.microblog.core.ErrorResponseTest)\n"\
+                      "  testFromException(com.snapci.microblog.core.ErrorResponseTest)"
+      }
+  end
+
+  it 'should include the failures in the test summary for gradle output' do
+    TestOutputParser::Framework::JUnit.count(File.read("spec/fixtures/sample-gradle-output.txt")).should ==
+      {
+        :total => 47,
+        :failed => 1,
+        :failures => "Running test: test shouldAddBookToDBIfNotInSystem(com.thoughtworks.twu.controller.AddBookControllerTest)\n\n"\
+                      "com.thoughtworks.twu.controller.AddBookControllerTest > shouldAddBookToDBIfNotInSystem FAILED\n"\
+                      "    java.lang.AssertionError at AddBookControllerTest.java:28"
+      }
+  end
 end

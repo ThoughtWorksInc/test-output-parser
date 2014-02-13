@@ -1,0 +1,105 @@
+    
+  
+$ git fetch --prune --all
+Fetching origin
+From git://localhost/akshaykarle/dropwizard-snapci-sample
+   3b3521d..1597fd3  master     -> origin/master
+Command git fetch --prune --all exited successfully with status 0.
+
+$ git reset --hard FETCH_HEAD
+HEAD is now at 1597fd3 Fail one more
+Command git reset --hard FETCH_HEAD exited successfully with status 0.
+
+$ git clean -fdx
+Removing target/
+Command git clean -fdx exited successfully with status 0.
+
+$ git checkout master
+Already on 'master'
+Command git checkout master exited successfully with status 0.
+
+$ git reset --hard 1597fd3f06dc8e8950e407142782d20a1025e080
+HEAD is now at 1597fd3 Fail one more
+Command git reset --hard 1597fd3f06dc8e8950e407142782d20a1025e080 exited successfully with status 0.
+
+$ git submodule update --init
+Command git submodule update --init exited successfully with status 0.
+
+$ git remote set-url --push origin 'git@github.com:akshaykarle/dropwizard-snapci-sample'
+Command git remote set-url --push origin 'git@github.com:akshaykarle/dropwizard-snapci-sample' exited successfully with status 0.
+
+$ export SNAP_CI=true
+$ export CI=true
+$ export LANG=en_US.UTF-8
+$ export LC_ALL=en_US.UTF-8
+$ export SNAP_PIPELINE_COUNTER=9
+$ export SNAP_STAGE_NAME=Test
+$ export SNAP_BRANCH=master
+$ export SNAP_COMMIT=1597fd3f06dc8e8950e407142782d20a1025e080
+$ export SNAP_COMMIT_SHORT=1597fd3
+
+$ mvn package
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building microblog 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ microblog ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ microblog ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 13 source files to /var/go/repo/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ microblog ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/go/repo/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ microblog ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /var/go/repo/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ microblog ---
+[INFO] Surefire report directory: /var/go/repo/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.snapci.microblog.core.ErrorResponseTest
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.134 sec <<< FAILURE!
+Running com.snapci.microblog.resources.MicroBlogResourceTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.253 sec
+Running com.snapci.microblog.resources.UserResourceTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 sec
+
+Results :
+
+Failed tests:   testFromExceptionWithUniqueConstraintViolation(com.snapci.microblog.core.ErrorResponseTest)
+  testFromException(com.snapci.microblog.core.ErrorResponseTest)
+
+Tests run: 13, Failures: 2, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.903s
+[INFO] Finished at: Thu Feb 13 13:42:59 UTC 2014
+[INFO] Final Memory: 20M/232M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.10:test (default-test) on project microblog: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /var/go/repo/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+Command mvn package failed with status 1. Took 5.45 seconds.
+Saving console log for later
+Saving artifact in target
