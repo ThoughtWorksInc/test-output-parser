@@ -1,12 +1,12 @@
-# Test::Count
+# TestOutputParser
 
-TODO: Write a gem description
+Parses common test output formats (RSpec, Test::Unit, JUnit) and provides a way to extract information out of it.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'test-count'
+    gem 'test-output-parser'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install test-count
+    $ gem install test-output-parser
 
 ## Usage
 
@@ -22,7 +22,7 @@ TODO: Write usage instructions here
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/test-count/fork )
+1. Fork it ( http://github.com/snap-ci/test-output-parser/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
