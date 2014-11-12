@@ -1,20 +1,42 @@
-$ bundle exec rake test
-/opt/local/ruby/1.9.3-p484/bin/ruby -I"lib:test" -I"/opt/local/ruby/1.9.3-p484/lib/ruby/1.9.1" "/opt/local/ruby/1.9.3-p484/lib/ruby/1.9.1/rake/rake_test_loader.rb" "test/foo_test.rb" 
-Run options: 
+$ rake test
+/opt/local/ruby/1.9.3-p484/bin/ruby -I"lib:test" -I"/opt/local/ruby/1.9.3-p484/lib/ruby/1.9.1" "/opt/local/ruby/1.9.3-p484/lib/ruby/1.9.1/rake/rake_test_loader.rb" "test/packages/python_test.rb" "test/packages/nodejs_test.rb" "test/packages/heroku_toolbelt_test.rb" "test/packages/java_test.rb" "test/packages/npm_test.rb" "test/packages/aws_elastic_beanstalk_test.rb" "test/packages/xvfb_test.rb" "test/packages/sbt_test.rb" "test/packages/ruby_test.rb" "test/packages/ant_test.rb" "test/packages/terraform_test.rb" "test/packages/s3cmd_test.rb" "test/packages/maven_test.rb" "test/packages/php_test.rb" "test/packages/snap_deploy_test.rb" "test/packages/foreman_test.rb" "test/packages/lein_test.rb" "test/packages/android_test.rb" "test/packages/gradle_test.rb" "test/packages/awscli_test.rb" "test/user_environment_test.rb" "test/sudo_access_test.rb" "test/nosql/redis_test.rb" "test/nosql/couchdb_test.rb" "test/nosql/mongodb_test.rb" "test/relational_db/postgres_test.rb" "test/relational_db/sqlite_test.rb" "test/relational_db/mysql_test.rb" "test/environment_variables_test.rb"
+Run options: --seed 13016
 
 # Running tests:
 
-.FF
+.........................................................................FE....................
 
-Finished tests in 0.000557s, 1793.7831 tests/s, 1793.7831 assertions/s.
+Finished tests in 48.599332s, 1.9548 tests/s, 5.2676 assertions/s.
 
   1) Failure:
-test_passes(FooTest) [/var/go/repo/test/foo_test.rb:5]:
-Failed assertion, no message given.
+test_no_additional_rubies(RubyTest) [/var/snap-ci/repo/test/packages/ruby_test.rb:23]:
+--- expected
++++ actual
+@@ -1 +1 @@
+-["foo", "bar"]
++["baz", "boo"]
 
-  2) Failure:
-test_passes(FooTest) [/var/go/repo/test/foo_test.rb:10]:
-Failed assertion, no message given.
 
-3 tests, 3 assertions, 2 failures, 0 errors, 0 skips
+  2) Error:
+test_rubies_are_installed(RubyTest):
+Errno::ENOENT: No such file or directory - /opt/local/ruby/2.1.4/bin/ruby --version
+    /tmp/.bundle-repo/ruby/1.9.1/gems/mixlib-shellout-1.2.0/lib/mixlib/shellout/unix.rb:268:in `exec'
+    /tmp/.bundle-repo/ruby/1.9.1/gems/mixlib-shellout-1.2.0/lib/mixlib/shellout/unix.rb:268:in `block in fork_subprocess'
+    /tmp/.bundle-repo/ruby/1.9.1/gems/mixlib-shellout-1.2.0/lib/mixlib/shellout/unix.rb:256:in `fork'
+    /tmp/.bundle-repo/ruby/1.9.1/gems/mixlib-shellout-1.2.0/lib/mixlib/shellout/unix.rb:256:in `fork_subprocess'
+    /tmp/.bundle-repo/ruby/1.9.1/gems/mixlib-shellout-1.2.0/lib/mixlib/shellout/unix.rb:40:in `run_command'
+    /tmp/.bundle-repo/ruby/1.9.1/gems/mixlib-shellout-1.2.0/lib/mixlib/shellout.rb:225:in `run_command'
+    /var/snap-ci/repo/test/mini_test_helper.rb:28:in `block in run_command'
+    /opt/local/ruby/1.9.3-p484/lib/ruby/gems/1.9.1/gems/bundler-1.6.3/lib/bundler.rb:235:in `block in with_clean_env'
+    /opt/local/ruby/1.9.3-p484/lib/ruby/gems/1.9.1/gems/bundler-1.6.3/lib/bundler.rb:222:in `with_original_env'
+    /opt/local/ruby/1.9.3-p484/lib/ruby/gems/1.9.1/gems/bundler-1.6.3/lib/bundler.rb:228:in `with_clean_env'
+    /var/snap-ci/repo/test/mini_test_helper.rb:23:in `run_command'
+    /var/snap-ci/repo/test/packages/ruby_test.rb:11:in `block in test_rubies_are_installed'
+    /var/snap-ci/repo/test/packages/ruby_test.rb:7:in `each'
+    /var/snap-ci/repo/test/packages/ruby_test.rb:7:in `test_rubies_are_installed'
+
+
+95 tests, 256 assertions, 1 failures, 1 errors, 0 skips
 rake aborted!
+Command failed with status (1): [/opt/local/ruby/1.9.3-p484/bin/ruby -I"lib...]
+

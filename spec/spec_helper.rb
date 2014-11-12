@@ -6,7 +6,14 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'test_output_parser'
 
+module SpecHelper
+  def strip_heredoc(str)
+    str.gsub(/^#{str.scan(/^\s*/).min_by{|l|l.length}}/, "")
+  end
+end
+
 RSpec.configure do |config|
+  config.include SpecHelper
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
