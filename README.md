@@ -1,3 +1,5 @@
+[![Build Status](https://snap-ci.com/snap-ci/test-output-parser/branch/master/build_image)](https://snap-ci.com/snap-ci/test-output-parser/branch/master)
+
 # TestOutputParser
 
 Parses common test output formats (RSpec, Test::Unit, JUnit) and provides a way to extract information out of it.
