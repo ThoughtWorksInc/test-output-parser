@@ -55,6 +55,7 @@ module TestOutputParser
 
   def self.count(test_output)
     summary = Summary.new
+    test_output = test_output.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
 
     TestOutputParser::Framework::RSpec.count(test_output, summary)
     TestOutputParser::Framework::TestUnit.count(test_output, summary)

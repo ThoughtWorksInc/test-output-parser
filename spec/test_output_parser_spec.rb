@@ -111,4 +111,10 @@ Errno::ENOENT: No such file or directory - /opt/local/ruby/2.1.4/bin/ruby --vers
     }
     expect(actual).to eq(expected)
   end
+
+  it 'should ignore invalid UTF-8 characters' do
+    actual = TestOutputParser.count("16 exa\255mples, 0 failures")
+    expected = { :total => 16 }
+    expect(actual).to eq(expected)
+  end
 end

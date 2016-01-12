@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    test-output-parser (0.4.0)
+    test-output-parser (0.4.1)
 
 GEM
   remote: https://rubygems.org/
@@ -29,3 +29,6 @@ DEPENDENCIES
   rake
   rspec
   test-output-parser!
+
+BUNDLED WITH
+   1.11.1
